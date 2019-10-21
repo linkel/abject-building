@@ -60,7 +60,8 @@ const box4 = Bodies.rectangle(900, 250, 100, 20);
 const positioner = Bodies.rectangle(900, 500, 80, 100);
 
 const ground = Bodies.rectangle(400, 710, 3000, 60, { isStatic: true });
-const wall = Bodies.rectangle(10, 300, 60, 1000, { isStatic: true});
+const left_wall = Bodies.rectangle(10, 300, 60, 1800, { isStatic: true});
+const right_wall = Bodies.rectangle(1600, 300, 60, 1800, { isStatic: true});
 
 // add mouse control
 var mouse = Mouse.create(render.canvas),
@@ -79,7 +80,7 @@ rightUpperArm, rightForearm, leftThigh, rightThigh, leftCalf, rightCalf];
 
 let objects = [box1, box2, box3, box4, positioner];
 
-World.add(engine.world, [...bodyParts, ...objects, ground, wall]);
+World.add(engine.world, [...bodyParts, ...objects, ground, left_wall, right_wall]);
 World.add(engine.world, mouseConstraint);
 
 // Was gonna do more with playing around with stiffness and length but it's fine for now
